@@ -1,6 +1,7 @@
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.*;
 import wordWrap.Wrapper;
+import wordWrap.ExceptionWrapper;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
@@ -18,7 +19,7 @@ class WrapperShould {
     @Test
     void return_an_exception_if_no_texts_exist (){
         var errorMessage = "error: there must be at least one word";
-        exceptionWrapper capturedExcepcion = assertThrows(exceptionWrapper.class, () ->
+        ExceptionWrapper capturedExcepcion = assertThrows(ExceptionWrapper.class, () ->
                 Wrapper.wrap("",2));
         Assertions.assertEquals(errorMessage,capturedExcepcion.getMessage());
     }
