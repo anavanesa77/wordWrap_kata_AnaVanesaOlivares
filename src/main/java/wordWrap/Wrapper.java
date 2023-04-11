@@ -2,7 +2,7 @@ package wordWrap;
 
 
 public class Wrapper{
-    public static String Wrap(String text, int columnNumber) {
+    public static String wrap(String text, int columnNumber) {
         return "Cero";
     }
 }

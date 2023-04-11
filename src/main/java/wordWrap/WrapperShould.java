@@ -1,5 +1,0 @@
-package wordWrap;
-
-class WrapperShould {
-
-}
