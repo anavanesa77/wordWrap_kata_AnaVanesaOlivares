@@ -6,8 +6,8 @@ import wordWrap.ExceptionWrapper;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 /*
-"",2 -> ""
-"happy", -2 -> "" exception
+"",2 -> exception
+"happy", -2 -> exception
 "happy", 10 -> "happy"
 "happy", 3 -> "hap\npy"
 "the happiness",10 -> "the\nhappiness"
@@ -21,6 +21,14 @@ class WrapperShould {
         var errorMessage = "format or extension error";
         ExceptionWrapper capturedExcepcion = assertThrows(ExceptionWrapper.class, () ->
                 Wrapper.wrap("",2));
+        Assertions.assertEquals(errorMessage, capturedExcepcion.getMessage());
+    }
+
+    @Test
+    void return_an_exception_if_the_column_number_is_negative() {
+        var errorMessage = "format or extension error";
+        ExceptionWrapper capturedExcepcion = assertThrows(ExceptionWrapper.class, () ->
+                Wrapper.wrap("happy",-2));
         Assertions.assertEquals(errorMessage, capturedExcepcion.getMessage());
     }
 }
