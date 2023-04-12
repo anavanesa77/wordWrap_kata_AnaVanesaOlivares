@@ -7,10 +7,10 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 /*
 "",2 -> exception
-"happy", -2 -> exception
-"happy", 10 -> "happy"
-"happy", 3 -> "hap\npy"
-"the happiness",10 -> "the\nhappiness"
+"Happy", -2 -> exception
+"Happy", 10 -> "happy"
+"Happy", 3 -> "hap\npy"
+"The happiness",10 -> "the\nhappiness"
  */
 
 
@@ -20,7 +20,7 @@ class WrapperShould {
     void return_an_exception_if_no_texts_exist() {
         var errorMessage = "format or extension error";
         ExceptionWrapper capturedExcepcion = assertThrows(ExceptionWrapper.class, () ->
-                Wrapper.wrap("",2));
+                Wrapper.Wrap("",2));
         Assertions.assertEquals(errorMessage, capturedExcepcion.getMessage());
     }
 
@@ -28,7 +28,16 @@ class WrapperShould {
     void return_an_exception_if_the_column_number_is_negative() {
         var errorMessage = "format or extension error";
         ExceptionWrapper capturedExcepcion = assertThrows(ExceptionWrapper.class, () ->
-                Wrapper.wrap("happy",-2));
+                Wrapper.Wrap("happy",-2));
         Assertions.assertEquals(errorMessage, capturedExcepcion.getMessage());
+    }
+
+    @Test
+    void returns_the_text_if_the_column_number_is_greater_than_the_length_of_the_text () throws ExceptionWrapper {
+        String text = "Happy";
+        int columnNumber = 4;
+        String resultText = Wrapper.Wrap(text,columnNumber);
+        Assertions.assertEquals("Happy",resultText);
+
     }
 }
