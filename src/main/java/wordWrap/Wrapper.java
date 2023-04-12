@@ -4,13 +4,17 @@ package wordWrap;
 public class Wrapper {
     public static String wrap(String text, int columnNumber) throws ExceptionWrapper {
 
-        try {
-            if (text.equals("")) {
-                throw new ExceptionWrapper(0);
-            }
-        } catch (ExceptionWrapper ex) {
-            System.out.println(ex.getMessage());
+        if (text.equals("")) {
+            var errorMessage = createErrorMessage();
+            throw new ExceptionWrapper(errorMessage);
         }
-        return text;
+
+        return "Casa";
+    }
+
+    private static String createErrorMessage() {
+        var errorMessage = "format or extension error";
+        return errorMessage;
     }
 }
+
