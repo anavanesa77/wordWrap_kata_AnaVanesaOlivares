@@ -35,9 +35,17 @@ class WrapperShould {
     @Test
     void returns_the_text_if_the_column_number_is_greater_than_the_length_of_the_text () throws ExceptionWrapper {
         String text = "Happy";
-        int columnNumber = 4;
+        int columnNumber = 10;
         String resultText = Wrapper.Wrap(text,columnNumber);
         Assertions.assertEquals("Happy",resultText);
+
+    }
+    @Test
+    void returns_text_with_line_break_in_column_number() throws ExceptionWrapper {
+        String text = "Happy";
+        int columnNumber = 3;
+        String resultText = Wrapper.Wrap(text,columnNumber);
+        Assertions.assertEquals("Hap\npy",resultText);
 
     }
 }
