@@ -8,9 +8,10 @@ public class Wrapper {
             var errorMessage = "format or extension error";
             throw new ExceptionWrapper(errorMessage);
         }
+        if (text.length() >= columnNumber) {
 
-        return "prueba";
+        }
+        return text;
     }
-
 }
 
