@@ -9,8 +9,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 "",2 -> exception
 "Happy", -2 -> exception
 "Happy", 10 -> "happy"
-"Happy", 3 -> "hap\npy"
-"The happiness",10 -> "the\nhappiness"
+"You are happy", 3 -> "You\n+are\nhap\py"
  */
 
 
@@ -38,14 +37,14 @@ class WrapperShould {
         int columnNumber = 10;
         String resultText = Wrapper.Wrap(text,columnNumber);
         Assertions.assertEquals("Happy",resultText);
-
     }
+
     @Test
     void returns_text_with_line_break_in_column_number() throws ExceptionWrapper {
-        String text = "Happy";
+        String text = "You are happy.";
         int columnNumber = 3;
         String resultText = Wrapper.Wrap(text,columnNumber);
-        Assertions.assertEquals("Hap\npy",resultText);
+        Assertions.assertEquals("You\nare\nhap\npy.",resultText);
 
     }
 }
