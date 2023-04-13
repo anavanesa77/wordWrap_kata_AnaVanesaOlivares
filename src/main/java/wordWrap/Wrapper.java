@@ -8,7 +8,7 @@ public class Wrapper {
         if (textWithoutSpaces.length() > columnNumber) {
             String firstLine = textWithoutSpaces.substring(0, columnNumber) + "\n";
             String secondLine = textWithoutSpaces.substring(columnNumber);
-            return firstLine + (Wrap(secondLine,columnNumber));
+            return firstLine + secondLine;
         }
         return text;
     }
